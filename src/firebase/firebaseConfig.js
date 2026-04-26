@@ -4,44 +4,25 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Firebase configuration (CONFIG REAL)
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyDPZgddt5lxWUWIAzPk6efOTGU8li5g_z8",
+  authDomain: "beisbol1-7c0b4.firebaseapp.com",
+  databaseURL: "https://beisbol1-7c0b4-default-rtdb.firebaseio.com",
+  projectId: "beisbol1-7c0b4",
+  storageBucket: "beisbol1-7c0b4.firebasestorage.app",
+  messagingSenderId: "568527557170",
+  appId: "1:568527557170:web:b962befc6fc76d79d1e22b",
+  measurementId: "G-YR2F30DEH5"
 };
-
-const requiredKeys = [
-  "apiKey",
-  "authDomain",
-  "projectId",
-  "storageBucket",
-  "messagingSenderId",
-  "appId",
-];
-
-for (const key of requiredKeys) {
-  if (!firebaseConfig[key]) {
-    throw new Error(`Firebase env faltante: ${key}`);
-  }
-}
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 
-// Analytics (solo en navegador; en algunos entornos puede fallar)
+// Analytics (solo en navegador)
 export const analytics =
   typeof window !== "undefined" ? getAnalytics(app) : undefined;
 
+// Servicios
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-
